@@ -1,0 +1,36 @@
+version: '3.5'
+
+volumes:
+  guistorage:
+    name: ${GUI_DATA_VOLUME:-pg-gui-data}
+  dbstorage:
+    name: ${DB_DATA_VOLUME:-pg-db-data}
+
+services:
+
+  admin:
+    image: dpage/pgadmin4:${GUI_TAG:-6.15}
+    restart: unless-stopped
+    ports:
+      - ${GUI_PORT:-80}:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${GUI_EMAIL:-admin@example.org}
+      PGADMIN_DEFAULT_PASSWORD: ${GUI_PASSWORD:-guipassword}
+    volumes:
+      - guistorage:/var/lib/pgadmin
+      
+  db:
+    image: postgres:${DB_TAG:-15.1}
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT:-5432}:5432
+    environment:
+      POSTGRES_DB: ${DB_NAME:-db}
+      POSTGRES_USER: ${DB_USER:-dbuser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dbpassword}
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - dbstorage:/var/lib/postgresql/data
+      
+
+
