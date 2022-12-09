@@ -8,7 +8,7 @@ volumes:
 
 services:
 
-  admin:
+  gui:
     image: dpage/pgadmin4:${GUI_TAG:-6.15}
     restart: unless-stopped
     ports:
