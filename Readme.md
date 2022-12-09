@@ -9,9 +9,9 @@ docker-compose up -d
 
 docker-compose -p projectname up -d
 
-docker-compose --env-file .env.test -d
+docker-compose --env-file .env.test up -d
 
-docker-compose -p projectname --env-file .env.test -d
+docker-compose -p projectname --env-file .env.test up -d
 ### 2 - Start/Stop
 docker-compose start
 
