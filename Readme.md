@@ -1,7 +1,7 @@
 # Docker database with GUI
 
 ## Customize Composition
-Copy .env.sample and edit it at your convenience
+Copy .env.sample to .env and edit it at your convenience
 
 ## Run Container Database
 ### 1 - First time
