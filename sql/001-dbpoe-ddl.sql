@@ -12,3 +12,16 @@ CREATE TABLE trainees (
 ALTER TABLE trainees
     ADD CONSTRAINT uniq_trainees_email 
 	UNIQUE (email);
+
+CREATE TABLE poes(
+	id serial,
+	title varchar(150) NOT NULL,
+	begin_date DATE NOT NULL,
+	end_date DATE NOT NULL,
+	poe_type VARCHAR(10) NOT NULL,
+	CONSTRAINT pk_poes PRIMARY KEY(id)
+);
+
+ALTER TABLE poes
+    ADD CONSTRAINT chk_poes_dates 
+	CHECK (begin_date < end_date);
