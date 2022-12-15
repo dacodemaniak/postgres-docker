@@ -2,12 +2,36 @@ version: '3.5'
 
 volumes:
   guistorage:
-    name: ${GUI_DATA_VOLUME:-pg-gui-data}
+    name: ${GUI_DATA_VOLUME:-maria-gui-data}
   dbstorage:
-    name: ${DB_DATA_VOLUME:-pg-db-data}
+    name: ${DB_DATA_VOLUME:-maria-db-data}
 
 services:
 
+   db:
+    image: mariadb:${DB_TAG:-10.9.4}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-db}
+      MYSQL_USER: ${DB_USER:-dbuser}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-dbpassword}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-dbrootpassword}
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - dbstorage:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT:-3306}:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 82:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: db
+      PMA_PORT: 3306
+  
   gui:
     image: dpage/pgadmin4:${GUI_TAG:-6.15}
     restart: unless-stopped
@@ -19,18 +43,6 @@ services:
     volumes:
       - guistorage:/var/lib/pgadmin
       
-  db:
-    image: postgres:${DB_TAG:-15.1}
-    restart: unless-stopped
-    ports:
-      - ${DB_PORT:-5432}:5432
-    environment:
-      POSTGRES_DB: ${DB_NAME:-db}
-      POSTGRES_USER: ${DB_USER:-dbuser}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-dbpassword}
-    volumes:
-      - ./sql:/docker-entrypoint-initdb.d
-      - dbstorage:/var/lib/postgresql/data
-      
+  
 
 
