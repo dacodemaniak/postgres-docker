@@ -1,5 +1,5 @@
 CREATE TABLE poes(
-	id integer autoincrement,
+	id integer auto_increment,
 	title varchar(150) NOT NULL,
 	begin_date DATE NOT NULL,
 	end_date DATE NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE poes(
 );
 
 CREATE TABLE trainees (
-    id integer autoincrement,
+    id integer auto_increment,
     lastname varchar(50) NOT NULL,
     firstname varchar(50) NOT NULL,
     gender char(1),
