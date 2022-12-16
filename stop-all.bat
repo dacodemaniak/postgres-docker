@@ -1,2 +1,2 @@
 echo off
-docker-compose -p dbpoe stop
+docker-compose -p dbpoemaria stop

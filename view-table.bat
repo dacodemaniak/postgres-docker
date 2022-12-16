@@ -1,4 +1,4 @@
 echo off
 rem view-table <table-name>
 set tablename=%1
-docker-compose -p dbpoe exec -it db psql -U poe -d dbpoe -c "select * from %tablename%"
+docker-compose -p dbpoemaria exec -it db mysql -u poe -p dbpoe -e "select * from %tablename%" 

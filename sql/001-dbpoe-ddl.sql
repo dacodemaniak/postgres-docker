@@ -1,5 +1,5 @@
 CREATE TABLE poes(
-	id serial,
+	id integer autoincrement,
 	title varchar(150) NOT NULL,
 	begin_date DATE NOT NULL,
 	end_date DATE NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE poes(
 );
 
 CREATE TABLE trainees (
-    id serial,
+    id integer autoincrement,
     lastname varchar(50) NOT NULL,
     firstname varchar(50) NOT NULL,
     gender char(1),

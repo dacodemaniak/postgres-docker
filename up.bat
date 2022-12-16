@@ -1,2 +1,2 @@
 echo off
-docker-compose -p dbpoe up -d
+docker-compose -p dbpoemaria up -d
