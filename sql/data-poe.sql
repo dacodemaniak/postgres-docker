@@ -6,4 +6,4 @@ INSERT INTO poe (id, begin_date, end_date, title, poe_type) VALUES (4,'2021-09-1
 INSERT INTO poe (id, begin_date, end_date, title, poe_type) VALUES (5,'2022-04-13','2022-08-16','Consultant SAP','POEI');
 INSERT INTO poe (id, begin_date, end_date, title, poe_type) VALUES (6,'2022-09-24','2022-11-23','Consultant BI','POEI');
 INSERT INTO poe (id, begin_date, end_date, title, poe_type) VALUES (7,'2022-09-24','2022-11-23','Drôle de Consultant BI','POEI');
-
+select setval('poe_id_seq', max(id)) from poe;
