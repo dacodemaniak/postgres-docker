@@ -29,7 +29,6 @@ services:
       POSTGRES_USER: ${DB_USER:-dbuser}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-dbpassword}
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d
       - dbstorage:/var/lib/postgresql/data
       
 

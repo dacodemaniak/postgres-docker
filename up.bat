@@ -1,2 +1,2 @@
 echo off
-docker-compose -p dbpoe up -d
+docker-compose -p dbpoe-pg-app up -d
