@@ -1,0 +1,22 @@
+{
+  "name": "postgres-faker",
+  "version": "1.0.0",
+  "description": "Copy .env.sample to .env and edit it at your convenience",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacodemaniak/postgres-docker.git"
+  },
+  "author": "DaCoDeMaNiaK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dacodemaniak/postgres-docker/issues"
+  },
+  "homepage": "https://github.com/dacodemaniak/postgres-docker#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
+}
