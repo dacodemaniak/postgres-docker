@@ -10,6 +10,11 @@ const run = () => {
     makeCourses(10)
     makeModules(50)
     makeMedias(100)
+
+    createInsertRequests('student', students)
+    createInsertRequests('course', courses)
+    createInsertRequests('modules', modules)
+    createInsertRequests('media', medias)
     
 }
 
@@ -66,6 +71,22 @@ const makeMedias = (number) => {
 
         medias.push(media)
     }
+}
+
+const createInsertRequests = (table, datas) => {
+    query = `INSERT INTO ${table} (`
+    for (property in datas[0]) {
+        query += property + ','
+    }
+    query = query.substring(0, query.length - 1) + ') VALUES \n'
+    for (data of datas) {
+        query += '('
+        for (property in data) {
+            query += "'" + data[property].replace("'", "''") + "',"
+        }
+        query = query.substring(0, query.length - 1) + '),\n'
+    }
+    query = query.substring(0, query.length - 2) + ";"
 }
 
 const randomBetween = (min, max) => {
