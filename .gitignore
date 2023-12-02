@@ -1,2 +1,6 @@
 .env
 node_modules
+
+# Datas
+dbstorage/*
+!/dbstorage/.gitkeep
