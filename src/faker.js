@@ -1,5 +1,6 @@
 import { faker } from 'faker-js/faker/locale/fr'
 
+// Make some arrays to feed random datas
 const students = []
 const courses = []
 const modules = []

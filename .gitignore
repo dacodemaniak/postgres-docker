@@ -4,3 +4,6 @@ node_modules
 # Datas
 dbstorage/*
 !/dbstorage/.gitkeep
+
+# MacOS specifics
+.DS_Store
